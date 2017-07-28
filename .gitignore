@@ -1,6 +1,11 @@
+.*
+!/.gitignore
+db.sqlite3
 *.pyc
 __pycache__
-myvenv
-db.sqlite3
-/static
+*~
+*.swp
+*.swo
+*.env
 .DS_Store
+myvenv/*
