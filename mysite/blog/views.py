@@ -13,4 +13,4 @@ def post_detail(request, pk):
 
 def post_title(request):
     title = Post.objects.all()
-    return render(request, 'blog/post_title.html', {'title': title})
+    return render(request, 'blog/post_title.html', {'post': title})
