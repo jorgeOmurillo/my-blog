@@ -5,10 +5,15 @@ def print_grid():
     print("-----------")
     print(" " + str(grid[6]) + " | " + str(grid[7]) + " | " + str(grid[8]))
 
-def win_or_lose(end):
+def win_or_lose():
     if grid[0] == 'X' and grid[1] == 'X' and grid[2] =='X':
         print("Player 1 wins!")
         end = True
+        return end
+    if grid[0] == 'O' and grid[1] == 'O' and grid[2] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
 
 grid = [' ']*9
 
@@ -17,5 +22,10 @@ end = False
 while end is not True:
     p1 = int(input("input your option player 1\n"))
     grid[p1] = 'X'
-    win_or_lose(end)
+    end = win_or_lose()
+    print_grid()
+
+    p2 = int(input("input your option player 2\n"))
+    grid[p2] = 'O'
+    end = win_or_lose()
     print_grid()
