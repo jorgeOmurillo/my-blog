@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
@@ -16,6 +17,7 @@ def post_title(request):
     title = Post.objects.all()
     return render(request, 'blog/post_title.html', {'title': title})
 
+@login_required
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)    
@@ -23,13 +25,13 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_new.html', {'form': form})
 
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -38,9 +40,25 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+@login_required
+def post_draft(request):
+    draft = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'blog/post_draft.html', {'draft': draft})
+
+@login_required
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post_detail', pk=pk)
+
+@login_required
+def post_remove(request, pk):
+    remove = get_object_or_404(Post, pk=pk)
+    remove.delete()
+    return redirect('post_list')
