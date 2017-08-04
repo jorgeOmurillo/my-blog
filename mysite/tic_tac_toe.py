@@ -10,10 +10,84 @@ def win_or_lose():
         print("Player 1 wins!")
         end = True
         return end
+
+    if grid[3] == 'X' and grid[4] == 'X' and grid[5] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+    if grid[6] == 'X' and grid[7] == 'X' and grid[8] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+
+    if grid[0] == 'X' and grid[3] == 'X' and grid[6] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+    if grid[1] == 'X' and grid[4] == 'X' and grid[7] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+    if grid[2] == 'X' and grid[5] == 'X' and grid[8] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+    if grid[0] == 'X' and grid[4] == 'X' and grid[8] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
+    if grid[2] == 'X' and grid[4] == 'X' and grid[6] =='X':
+        print("Player 1 wins!")
+        end = True
+        return end
+
     if grid[0] == 'O' and grid[1] == 'O' and grid[2] =='O':
         print("Player 2 wins!")
         end = True
         return end
+
+    if grid[3] == 'O' and grid[4] == 'O' and grid[5] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[6] == 'O' and grid[7] == 'O' and grid[8] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[0] == 'O' and grid[3] == 'O' and grid[6] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[1] == 'O' and grid[4] == 'O' and grid[7] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[2] == 'O' and grid[5] == 'O' and grid[8] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[0] == 'O' and grid[4] == 'O' and grid[8] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+    if grid[2] == 'O' and grid[4] == 'O' and grid[6] =='O':
+        print("Player 2 wins!")
+        end = True
+        return end
+
+
 
 grid = [' ']*9
 
