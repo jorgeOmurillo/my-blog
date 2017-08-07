@@ -32,14 +32,31 @@ grid = [' ']*9
 print_grid()
 
 while True:
-    p1 = int(input("input your option player 1\n"))
-    
+    p1 = 0
+    p2 = 0
+
+    while True:
+        p1 = (input("Input your option player 1\n"))
+        try:
+            if int(p1) and (int(p1) in range(1,10)):
+                p1 = int(p1)
+                break
+        except ValueError:
+            print("This is not a valid number.\n")
+ 
     grid[p1-1] = 'X'
     print_grid()
     if win_or_lose():
         break
-
-    p2 = int(input("input your option player 1\n"))
+    
+    while True:
+        p2 = (input("Input your option player 2\n"))
+        try:
+            if int(p2) and (int(p2) in range(1,10)):
+                p2 = int(p2)
+                break
+        except ValueError:
+            print("This is not a valid number.\n")
 
     grid[p2-1] = 'O'
     print_grid()
