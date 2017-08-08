@@ -40,7 +40,11 @@ while True:
         try:
             if int(p1) and (int(p1) in range(1,10)):
                 p1 = int(p1)
-                break
+
+                if grid[p1-1] is not " ":
+                    print("This value is taken, please choose a different option.\n")
+                else:
+                    break
         except ValueError:
             print("This is not a valid number.\n")
  
@@ -54,7 +58,11 @@ while True:
         try:
             if int(p2) and (int(p2) in range(1,10)):
                 p2 = int(p2)
-                break
+
+                if grid[p2-1] is not " ":
+                    print("This value is taken, please choose a different option.\m")
+                else:
+                    break
         except ValueError:
             print("This is not a valid number.\n")
 
