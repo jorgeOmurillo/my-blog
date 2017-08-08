@@ -60,7 +60,7 @@ while True:
                 p2 = int(p2)
 
                 if grid[p2-1] is not " ":
-                    print("This value is taken, please choose a different option.\m")
+                    print("This value is taken, please choose a different option.\n")
                 else:
                     break
         except ValueError:
